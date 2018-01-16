@@ -19,6 +19,10 @@ source 'https://rubygems.org'
    gem 'web-console', '~> 2.0'
  end
 
+ group :development, :test do
+   gem 'rspec-rails', '~> 3.7'
+ end
+
  # Use Puma as the app server
  gem 'puma', '~> 3.0'
  # Use SCSS for stylesheets
