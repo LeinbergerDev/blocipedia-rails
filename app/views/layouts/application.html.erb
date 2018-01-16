@@ -10,9 +10,23 @@
 
   <body>
     <div class="container">
-     <div class="pull-left">
-       <%= link_to "Home", root_path, class: 'pull-left' %>
-     </div>
+      <div class="row">
+        <div class="pull-left">
+          <%= link_to "Home", root_path, class: 'pull-left' %>
+        </div>
+        <div class="pull-right">
+      <% if user_signed_in? %>
+        Signed in as: <strong><%= current_user.email %></strong> |
+        <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %> - <%= link_to "Sign Out",
+        destroy_user_session_path, method: :delete, class:'navbar-link'%>
+        <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'navbar-link' %> -
+        <%= link_to "Sign In", new_user_session_path, class: 'navbar-link' %>
+        <% end %>
+      </div>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
      <%= yield %>
    </div>
   </body>
