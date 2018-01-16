@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+     <div class="pull-left">
+       <%= link_to "Home", root_path, class: 'pull-left' %>
+     </div>
+     <%= yield %>
+   </div>
   </body>
 </html>
