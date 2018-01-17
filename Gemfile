@@ -21,6 +21,7 @@ source 'https://rubygems.org'
 
  group :development, :test do
    gem 'rspec-rails', '~> 3.7'
+   gem 'factory_bot_rails'
  end
 
  # Use Puma as the app server
@@ -46,3 +47,5 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass', '~> 3.3.7'
 
  gem 'devise'
+
+ gem 'rails-controller-testing'
