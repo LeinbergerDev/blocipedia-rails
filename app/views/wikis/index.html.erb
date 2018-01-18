@@ -1,2 +1,26 @@
-<h1>Wikis#index</h1>
-<p>Find me in app/views/wikis/index.html.erb</p>
+<div class="center">
+<h1>My Wikis</h1>
+</div>
+<div class="row">
+  <table class="center">
+    <% @wikis.each do |wiki| %>
+      <tr>
+        <td>
+          <%= link_to wiki.title, wiki_path(wiki) %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_wiki_path(wiki), class: 'btn btn-success' %>
+        </td>
+        <td>
+          <%= link_to "Delete Wiki",[wiki], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'} %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div class="row">
+  <div class="center">
+    <br>
+    <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-success' %>
+  </div>
+</div>

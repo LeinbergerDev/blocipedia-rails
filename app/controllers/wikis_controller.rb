@@ -1,4 +1,7 @@
 class WikisController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
     @wikis = Wiki.all
   end
@@ -8,7 +11,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user.id)
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
