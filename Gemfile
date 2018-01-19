@@ -51,3 +51,5 @@ source 'https://rubygems.org'
  gem 'rails-controller-testing'
 
  gem 'pundit'
+
+ gem 'faker'
