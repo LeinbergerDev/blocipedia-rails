@@ -36,11 +36,13 @@ class WikisController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user.id)
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.private = params[:wiki][:private]
+
+    authorize @wiki
 
     if @wiki.save
       flash[:notice] = "Wiki was updated."
@@ -53,6 +55,9 @@ class WikisController < ApplicationController
 
   def destroy
     @wiki = Wiki.find(params[:id])
+
+    authorize @wiki
+
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
       redirect_to wikis_path
@@ -62,6 +67,7 @@ class WikisController < ApplicationController
     end
   end
 
+  
   private
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)

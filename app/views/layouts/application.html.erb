@@ -13,6 +13,9 @@
       <div class="row">
         <div class="pull-left">
           <%= link_to "Home", root_path, class: 'pull-left' %>
+          <% if user_signed_in? %>
+            <%= link_to "Show The Wikis", wikis_path, class: 'pull-left' %>
+          <% end %>
         </div>
         <div class="pull-right">
       <% if user_signed_in? %>

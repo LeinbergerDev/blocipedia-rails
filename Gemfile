@@ -49,3 +49,5 @@ source 'https://rubygems.org'
  gem 'devise'
 
  gem 'rails-controller-testing'
+
+ gem 'pundit'
