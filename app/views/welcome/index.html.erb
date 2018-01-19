@@ -19,17 +19,23 @@
     <div class="row">
       <div class="col-md-5 center-text">
         <h3 class="margin-bottom">Create as many public wikis as you want!</h3>
-        <%= link_to "", "#", class: 'glyphicon glyphicon-book' %> <br>
+        <%= link_to "", new_user_registration_path, class: 'glyphicon glyphicon-book' %> <br>
         <br>
-        <%= link_to "Free Plan", "#", class: 'h3' %>
+        <%= link_to "Free Plan", new_user_registration_path, class: 'h3' %>
       </div>
       <div class="col-md-2">
       </div>
       <div class="col-md-5 center-text" >
         <h3 class="margin-bottom">Create private wikis</h3>
-        <%= link_to "", "#",  class: 'glyphicon glyphicon-usd'%> <br>
+        <% if current_user.present? %>
+          <%= link_to "", new_charge_path,  class: 'glyphicon glyphicon-usd'%> <br>
+          <br>
+          <%= link_to "Premium Plan", new_charge_path, class: 'h3' %>
+        <% else %>
+        <%= link_to "", new_user_registration_path,  class: 'glyphicon glyphicon-usd'%> <br>
         <br>
-        <%= link_to "Premium Plan", "#", class: 'h3' %>
+        <%= link_to "Premium Plan", new_user_registration_path, class: 'h3' %>
+        <% end %>
       </div>
     </div>
   </div>

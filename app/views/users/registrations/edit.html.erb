@@ -40,4 +40,12 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
+<h3>Account type: <%= current_user.role %> </h3>
+  <% if current_user.role == "standard" %>
+    <%= link_to "Upgrade Account", new_charge_path, class: 'btn btn-success' %>
+  <% end %>
+  <% if current_user.role == "premium" || current_user.role == "admin" %>
+    <%= link_to "Downgrade Account", downgrade_path, class: 'btn btn-danger' %>
+  <% end %>
+</br>
 <%= link_to "Back", :back %>
