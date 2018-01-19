@@ -53,3 +53,7 @@ source 'https://rubygems.org'
  gem 'pundit'
 
  gem 'faker'
+
+ gem 'figaro', '1.0'
+
+ gem 'stripe'
