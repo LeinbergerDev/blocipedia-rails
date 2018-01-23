@@ -1,0 +1,8 @@
+.row
+  - if current_user.role == "standard"
+    = render 'standard_form'
+  - else
+    .col-md-6
+      = render 'standard_form'
+    .col-md-6
+      = render 'premium_form'

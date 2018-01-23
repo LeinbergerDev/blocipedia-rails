@@ -1,0 +1,40 @@
+.container
+  .row
+    %h1.center-text.larger-font-size.margin-bottom
+      Blocipedia: Social, Markdown Wikis
+
+.content
+  .row
+    .jumbotron
+      %h1.center-text
+        Create and share Markdown Wikis
+      .col-md-offset-5
+        .col-md-2
+          = link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg"
+      %br
+      %br
+  .row
+    .col-md-5.center-text
+      %h3.margin-bottom
+        Create as many public Wikis as you want!
+      = link_to "", new_user_registration_path, class: "glyphicon glyphicon-book"
+      %br
+      %br
+      %br
+      = link_to 'Free Plan', new_user_registration_path, class: "h3"
+    .col-md-2
+    .col-md-5.center-text
+      %h3.margin-bottom
+        Create Private Wikis
+        %br
+        %br
+      - if current_user.present?
+        = link_to "", new_charge_path, class: "glyphicon glyphicon-usd"
+        %br
+        %br
+        = link_to "Premium Plan", new_charge_path, class: "h3"
+      - else
+        = link_to "", new_user_registration_path, class: "glyphicon glyphicon-usd"
+        %br
+        %br
+        .h3= link_to 'Premium Plan', new_user_registration_path

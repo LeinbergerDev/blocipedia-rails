@@ -1,0 +1,17 @@
+= form_for [@wiki] do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', placeholder: "Enter a title here"
+  .form-group
+    = f.label :body
+    = f.text_area :body, rows: 10, class: 'form-control', placeholder: "Enter body content here"
+  - if current_user.role == "premium" || current_user.role == "admin"
+    .form-group
+      = f.label :private, class: 'checkbox' do
+        = f.check_box :private, class: 'checkbox'
+        Private Wiki
+    %br
+    - if @wiki.private == true
+      = render partial: "collaborators/form"
+    .form-group
+      = f.submit "Save", class: 'btn btn-success'

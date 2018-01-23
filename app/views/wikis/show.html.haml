@@ -1,0 +1,8 @@
+%h1
+  = markdown(@wiki.title)
+.row
+  %p
+    = markdown(@wiki.body)
+.row
+  = link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success'
+  = link_to "Delete Wiki", [@wiki], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'}
