@@ -9,7 +9,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def delete?
-    user_is_owner?
+    user.present?
   end
 
   def user_is_owner?
